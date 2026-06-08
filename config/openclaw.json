@@ -1,0 +1,109 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/data/.openclaw/workspace",
+      "model": {
+        "primary": "anthropic/claude-haiku-4-5"
+      },
+      "models": {
+        "anthropic/claude-sonnet-4-6": {},
+        "anthropic/claude-haiku-4-5": {}
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "anthropic": {
+        "models": [
+          { "id": "claude-haiku-4-5", "name": "Claude Haiku 4.5" }
+        ]
+      }
+    }
+  },
+  "env": {
+    "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+    "DEEPGRAM_API_KEY": "${DEEPGRAM_API_KEY}"
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "Hornet660!@#"
+    },
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": { "mode": "off", "resetOnExit": false },
+    "controlUi": { "allowInsecureAuth": true, "allowedOrigins": ["*"] },
+    "trustedProxies": ["127.0.0.1", "::1", "0.0.0.0/0"]
+  },
+  "session": { "dmScope": "per-channel-peer" },
+  "tools": {
+    "profile": "full",
+    "media": {
+      "audio": {
+        "enabled": true,
+        "echoTranscript": true,
+        "echoFormat": "📝 \"{transcript}\"",
+        "providerOptions": {
+          "deepgram": {
+            "detect_language": true,
+            "punctuate": true,
+            "smart_format": true
+          }
+        },
+        "models": [
+          { "provider": "deepgram", "model": "nova-3" }
+        ]
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "anthropic": { "enabled": true },
+      "deepgram": { "enabled": true },
+      "whatsapp": { "enabled": true }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  },
+  "skills": { "install": { "nodeManager": "npm" } },
+  "wizard": {
+    "lastRunAt": "2026-06-06T21:18:19.789Z",
+    "lastRunVersion": "2026.6.1",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.6.1",
+    "lastTouchedAt": "2026-06-07T19:42:20.873Z"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "8758674269:AAHABhYJOlamV08J2RbNzkLUp2KTDbzUM_U",
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "streaming": { "mode": "partial" }
+    },
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "allowFrom": ["+5511964856876"],
+      "accounts": {
+        "default": { "enabled": true }
+      }
+    }
+  },
+  "commands": {
+    "ownerAllowFrom": [
+      "telegram:8969259049"
+    ]
+  }
+}
