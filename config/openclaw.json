@@ -28,7 +28,7 @@
     "mode": "local",
     "auth": {
       "mode": "token",
-      "token": "Hornet660!@#"
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
     "port": 18789,
     "bind": "loopback",
@@ -86,7 +86,7 @@
   "channels": {
     "telegram": {
       "enabled": true,
-      "botToken": "8758674269:AAHABhYJOlamV08J2RbNzkLUp2KTDbzUM_U",
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
       "dmPolicy": "pairing",
       "groupPolicy": "open",
       "streaming": { "mode": "partial" }
@@ -95,7 +95,7 @@
       "enabled": true,
       "dmPolicy": "pairing",
       "groupPolicy": "open",
-      "allowFrom": ["+5511964856876"],
+      "allowFrom": ["${WHATSAPP_ALLOWED_NUMBER}"],
       "accounts": {
         "default": { "enabled": true }
       }
@@ -103,7 +103,7 @@
   },
   "commands": {
     "ownerAllowFrom": [
-      "telegram:8969259049"
+      "telegram:${TELEGRAM_OWNER_ID}"
     ]
   }
 }
